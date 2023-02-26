@@ -1,0 +1,512 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;300;400;500;600;700&display=swap"); /* Antonio */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "Kommissar-X-Condensed-Bold";
+    src: url(/fonts/KommissarX-CondensedBold.otf);
+}
+
+@font-face {
+    font-family: "Kommissar-X-Condensed-Extralight";
+    src: url(/fonts/KommissarX-CondensedExtralight.otf);
+}
+
+@font-face {
+    font-family: "Kommissar-X-Condensed-Light";
+    src: url(/fonts/KommissarX-CondensedLight.otf);
+}
+
+@font-face {
+    font-family: "Kommissar-X-Condensed-Medium";
+    src: url(/fonts/KommissarX-CondensedMedium.otf);
+}
+
+@font-face {
+    font-family: "Kommissar-X-Condensed-Regular";
+    src: url(/fonts/KommissarX-CondensedRegular.otf);
+}
+
+@font-face {
+    font-family: "Kommissar-X-Condensed-Thin";
+    src: url(/fonts/KommissarX-CondensedThin.otf);
+}
+
+@font-face {
+    font-family: "Kommissar-X-Condensed-Ultra";
+    src: url(/fonts/KommissarX-CondensedUltra.otf);
+}
+
+@font-face {
+    font-family: "Basement-Grotesque";
+    src: url(/fonts/BasementGrotesque.otf);
+}
+
+.basement-bold {
+    font-family: "Basement-Grotesque", sans-serif;
+}
+
+.komi-bold {
+    font-family: "Kommissar-X-Condensed-Bold", sans-serif;
+}
+
+.komi-xLight {
+    font-family: "Kommissar-X-Condensed-ExtraLight", sans-serif;
+}
+.komi-light {
+    font-family: "Kommissar-X-Condensed-Light", sans-serif;
+}
+.komi-medium {
+    font-family: "Kommissar-X-Condensed-Medium", sans-serif;
+}
+.komi-regular {
+    font-family: "Kommissar-X-Condensed-Regular", sans-serif;
+}
+.komi-thin {
+    font-family: "Kommissar-X-Condensed-Thin", sans-serif;
+}
+.komi-ultra {
+    font-family: "Kommissar-X-Condensed-Ultra", sans-serif;
+}
+html {
+    scroll-behavior: smooth !important;
+}
+body {
+    overscroll-behavior-y: none;
+}
+.light-box {
+    background: #6f6e6e;
+    filter: blur(227px);
+}
+div {
+    will-change: transform;
+    transition: 0.5s ease-in-out transform;
+}
+#canvas {
+    margin: 0 auto;
+}
+
+.box {
+    border: 1px solid #3f3f46;
+}
+.box2::before {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 1px;
+    width: 0px;
+    content: "";
+    background: #3f3f46;
+    animation: sec 1s linear forwards;
+    animation-play-state: var(--animation-play-state, "paused");
+}
+
+@keyframes sec {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+.box3::after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2px;
+    width: 0px;
+    content: "";
+    background: #3f3f46;
+    animation: sec 1s linear forwards;
+    animation-play-state: var(--animation-play-state, "paused");
+    animation-fill-mode: forwards;
+}
+
+@keyframes sec {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+.box4::before {
+    content: "";
+    position: absolute;
+    border-left: 1px solid #3f3f46;
+    top: 0;
+    bottom: 100%;
+    left: 0;
+    animation: sec1 1s linear forwards;
+    animation-play-state: var(--animation-play-state, "paused");
+}
+@keyframes sec1 {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: 100%;
+    }
+}
+.box4::after {
+    content: "";
+    position: absolute;
+    animation: sec1 1s linear forwards;
+}
+@keyframes sec1 {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: 100%;
+    }
+}
+.box5::before {
+    content: "";
+    position: absolute;
+    border-left: 1px solid #3f3f46;
+    top: 0;
+    bottom: 100%;
+    left: 0;
+    animation-delay: 3s;
+    animation: sec2 1s linear forwards;
+    animation-play-state: var(--animation-play-state, "paused");
+}
+@keyframes sec2 {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: 100%;
+    }
+}
+.box5::after {
+    content: "";
+    position: absolute;
+    animation: sec2 1s linear forwards;
+}
+@keyframes sec2 {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: 100%;
+    }
+}
+.box6::before {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 1px;
+    width: 0px;
+    content: "";
+    background: #3f3f46;
+    animation: sec6 1s linear forwards;
+    animation-play-state: var(--animation-play-state, "running");
+}
+
+@keyframes sec6 {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+.box7::after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2px;
+    width: 0px;
+    content: "";
+    background: #3f3f46;
+    animation: sec7 1s 1s linear forwards;
+    animation-play-state: var(--animation-play-state, "running");
+}
+
+@keyframes sec7 {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+.box8::before {
+    content: "";
+    position: absolute;
+    border-left: 1px solid #3f3f46;
+    top: 0;
+    bottom: 100%;
+    left: 0;
+    animation: sec8 1s linear forwards;
+    animation-play-state: var(--animation-play-state, "running");
+}
+@keyframes sec8 {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: 100%;
+    }
+}
+.box9::before {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 1px;
+    width: 0px;
+    content: "";
+    background: #3f3f46;
+    animation: sec9 1s linear forwards;
+    animation-play-state: var(--animation-play-state, "paused");
+}
+
+@keyframes sec9 {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+.box10::after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2px;
+    width: 0px;
+    content: "";
+    background: #3f3f46;
+    animation: sec10 1s 2s linear forwards;
+    animation-play-state: var(--animation-play-state, "running");
+}
+
+@keyframes sec10 {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+.box11::before {
+    content: "";
+    position: absolute;
+    border-left: 1px solid #3f3f46;
+    top: 0;
+    bottom: 100%;
+    left: 0;
+    animation: sec11 1s 1s linear forwards;
+    animation-play-state: var(--animation-play-state, "running");
+}
+@keyframes sec11 {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: 100%;
+    }
+}
+.box12::before {
+    content: "";
+    position: absolute;
+    border-left: 1px solid #3f3f46;
+    top: 0;
+    bottom: 100%;
+    left: 0;
+    animation: sec12 1s 2s linear forwards;
+    animation-play-state: var(--animation-play-state, "running");
+}
+@keyframes sec12 {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: 100%;
+    }
+}
+
+input[type="radio"]:before {
+    content: "";
+}
+.box13::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    bottom: 0;
+    left: 0;
+    border-left: 1px solid #3f3f46;
+    animation: sec14 1s linear forwards;
+    animation-play-state: var(--animation-play-state, "paused");
+}
+@keyframes sec14 {
+    from {
+        bottom: 0px;
+    }
+
+    to {
+        top: 0px;
+    }
+}
+.box14::before {
+    content: "";
+    position: absolute;
+}
+.box14::after {
+    content: "";
+    position: absolute;
+    border-bottom: 1px solid #3f3f46;
+    left: 0;
+    right: 100%;
+    bottom: 0;
+    animation: sec15 1s linear forwards;
+    animation-play-state: var(--animation-play-state, "paused");
+}
+
+@keyframes sec15 {
+    from {
+        left: 0px;
+    }
+
+    to {
+        right: 0px;
+    }
+}
+.box15::after {
+    content: "";
+    position: absolute;
+    border-bottom: 1px solid #3f3f46;
+    left: 100%;
+    right: 0;
+    bottom: 0;
+    animation: sec16 1s linear forwards;
+    animation-play-state: var(--animation-play-state, "paused");
+}
+
+@keyframes sec16 {
+    from {
+        right: 0px;
+    }
+
+    to {
+        left: 0px;
+    }
+}
+.cursor {
+    position: sticky;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.img2Div {
+    animation-name: FadeInOut2;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 3s;
+    animation-direction: alternate;
+}
+.imgDiv {
+    animation-name: FadeInOut;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 3s;
+    animation-direction: alternate;
+}
+@keyframes FadeInOut2 {
+    0% {
+        opacity: 1;
+    }
+    45% {
+        opacity: 1;
+    }
+    55% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@keyframes FadeInOut {
+    0% {
+        opacity: 0;
+    }
+    45% {
+        opacity: 0;
+    }
+    55% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.video-container video {
+    width: 100%;
+    height: 718px;
+    object-fit: fill;
+    z-index: -1;
+}
+.video-heading {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+}
+.mask {
+    animation: dash 6s 0.5s forwards;
+    animation-timing-function: linear;
+}
+
+@keyframes dash {
+    from {
+        stroke-dashoffset: 1500;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+.swiper {
+    width: 100%;
+    height: 50%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
