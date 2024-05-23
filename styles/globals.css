@@ -4,6 +4,17 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  overflow: hidden;
+  height: 100%;
+}
+
+body {
+  overflow: auto;
+  height: 100%;
+  overscroll-behavior: none;
+}
+
 @font-face {
     font-family: "Kommissar-X-Condensed-Bold";
     src: url(/fonts/KommissarX-CondensedBold.otf);
