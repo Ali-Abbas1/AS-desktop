@@ -1,43 +1,67 @@
 import React, { useState, useEffect } from "react"
 import Header from "./Header"
 import Footer from "./Footer"
-import Lottie from "react-lottie"
-import animationData from "/public/lottie/23796-ring-of-fire.json"
+import dynamic from "next/dynamic"
+const Lottie = dynamic(() => import("react-lottie"), {
+    ssr: false
+})
+
+
+const animationData = dynamic(() => import("/public/lottie/23796-ring-of-fire.json"), {
+    ssr: false
+})
 const Layout = ({ children }) => {
+   
+    const [load, setLoad] = useState(true)
+    const [isMounted, setIsMounted] = useState(false)
+
     const defaultOptions = {
         loop: true,
         autoplay: true,
         animationData: animationData
     }
-    const [load, setLoad] = useState(true)
 
     useEffect(() => {
-        var imgs = document.images,
-            len = imgs.length,
-            counter = 0
-        ;[].forEach.call(imgs, function (img) {
-            if (img.complete) incrementCounter()
-            else img.addEventListener("load", incrementCounter, false)
-        })
+        setIsMounted(true)
 
-        function incrementCounter() {
-            counter++
-            if (counter === len) {
-                setTimeout(() => {
-                    setLoad(false)
-                }, 1000)
+        const handleImageLoad = () => {
+            let loadedImages = 0
+            const images = document.images
+
+            function incrementCounter() {
+                loadedImages++
+                if (loadedImages === images.length) {
+                    setTimeout(() => setLoad(false), 1000)
+                }
             }
+
+            if (images.length === 0) {
+                setLoad(false)
+                return
+            }
+
+            Array.from(images).forEach(img => {
+                if (img.complete) {
+                    incrementCounter()
+                } else {
+                    img.addEventListener("load", incrementCounter)
+                    img.addEventListener("error", incrementCounter) // Handle failed image loads
+                }
+            })
         }
+
+        handleImageLoad()
     }, [])
 
     useEffect(() => {
-        if (load) {
-            document.body.style.overflow = "hidden"
-        } else {
-            document.body.style.overflow = "auto"
-            window.scroll(0, 0)
+        if (typeof window !== "undefined") {
+            document.body.style.overflow = load ? "hidden" : "auto"
+            if (!load) window.scrollTo(0, 0)
         }
     }, [load])
+
+    if (!isMounted) return null // Prevent SSR flash
+
     return (
         <>
             {load && (
