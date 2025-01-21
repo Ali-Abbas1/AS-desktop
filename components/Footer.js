@@ -121,8 +121,8 @@ const Footer = () => {
 
     return (
         <>
-             <div className="text-center relative overflow-hidden"> {/* Added overflow-hidden */}
-            <div id="main" className="w-full h-full relative"> {/* Added relative */}
+             <div className="text-center relative overflow-hidden"> 
+            <div id="main" className="w-full h-full relative"> 
                 <canvas
                     id="myCanvas"
                     className="flex justify-center items-center bg-black w-full h-full mt-[-30px]"
